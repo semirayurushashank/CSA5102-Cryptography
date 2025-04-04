@@ -1,0 +1,50 @@
+message = 'RD SFRJ NX WFLMZ'
+Letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+for key in range(len(Letters)):
+   translated = ''
+   for ch in message:
+      if ch in Letters:
+         num = Letters.find(ch)
+         num = num - key
+         if num < 0:
+            num = num + len(Letters)
+         translated = translated + Letters[num]
+      else:
+         translated = translated + ch
+   print('Hacking key is %s: %s' % (key, translated))
+
+ct=str(input("ENTER THE PLAIN TEXT : "))
+a=int(input("ENTER a : "))
+b=int(input("ENTER b : "))
+letter="abcdefghijklmnopqrstuvwxyz"
+dec=""
+for x in ct:
+    en=0
+    if x in letter:
+        pos=letter.find(x)
+        en=((a*pos)+b)%26
+        dec+=letter[en]
+print("CIPHER TEXT : "+dec)
+
+P = "hello everyone"
+plaintext = []
+ciphertext = ""
+
+# Create a list of lowercase alphabets
+alphabet = [chr(i) for i in range(97, 123)]
+
+# Convert each character to its index
+for ch in P:
+    if ch in alphabet:
+        index = alphabet.index(ch)
+        plaintext.append(index)
+
+# Shift each index by +1 and get the cipher text
+for i in plaintext:
+    new_index = i + 1
+    if new_index < len(alphabet):
+        ciphertext += alphabet[new_index]
+
+print("Encrypted text:", ciphertext)
+
+
